@@ -1,6 +1,6 @@
 version: "2"
 services:
-  verdaccio:
+  rancher:
     image: rancher/rancher:stable
     expose:
       - 80

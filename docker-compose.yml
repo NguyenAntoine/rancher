@@ -1,0 +1,20 @@
+version: "2"
+services:
+  verdaccio:
+    image: rancher/rancher:stable
+    expose:
+      - 80
+      - 443
+    networks:
+      - default
+      - reverse-proxy
+    volumes:
+      - ./rancher:/var/lib/rancher
+    env_file:
+      - .env
+    restart: unless-stopped
+networks:
+  reverse-proxy:
+    external:
+      name: reverse-proxy
+

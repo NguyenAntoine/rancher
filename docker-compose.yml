@@ -1,15 +1,14 @@
 version: "2"
 services:
   rancher:
-    image: rancher/rancher:stable
+    image: rancher/server:stable
     expose:
-      - 80
-      - 443
+      - 8080
     networks:
       - default
       - reverse-proxy
     volumes:
-      - ./rancher:/var/lib/rancher
+      - ./rancher:/var/lib/mysql
     env_file:
       - .env
     restart: unless-stopped
